@@ -9,8 +9,13 @@
                     {{todo.title}}
                 </div>
                 <div class="ms-auto">
-                    <button class="action badge rouded-pill text-bg-warning">{{todo.complated}}</button>
-                    <button class="action badge rouded-pill text-bg-danger">Delete</button>
+                    <button class="action badge rouded-pill text-bg-warning" 
+                    hx-get='{% url "mark_todo" todo.id %}' hx-target="#todolist" >
+                        {{todo.complated}}
+                    </button>
+
+                    <button class="action badge rouded-pill text-bg-danger" 
+                    hx-delete='{% url "delete_todo" todo.id %}' hx-target="#todolist">Delete</button>
                 </div>
                 
             </li>

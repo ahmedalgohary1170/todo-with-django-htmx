@@ -22,4 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('todos/', views.index),
     path('todos/create', views.create_todo,name='create_todo'),
+    path('todos/<int:id>/mark', views.mark_todo,name='mark_todo'),
+    path('todos/<int:id>/delete', views.delete_todo,name='delete_todo'),
 ]

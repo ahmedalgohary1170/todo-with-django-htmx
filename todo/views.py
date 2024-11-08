@@ -16,3 +16,22 @@ def create_todo(request):
 
     return render(request,'todo_list.html',{"todos":data})
 
+
+
+def mark_todo(request,id):
+    todo = Todo.objects.get(id=id)
+
+
+    todo.complated = not todo.complated
+    todo.save()
+    data = Todo.objects.all()
+    return render(request,'todo_list.html',{"todos":data})
+
+
+def delete_todo(request,id):
+    todo = Todo.objects.get(id=id)
+
+
+    todo.delete()
+    data = Todo.objects.all()
+    return render(request,'todo_list.html',{"todos":data})
